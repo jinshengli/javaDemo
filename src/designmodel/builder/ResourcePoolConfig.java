@@ -16,6 +16,10 @@ package designmodel.builder;
  *  3, Builder 类 setter， 参数校验。
  *  4， builder 方法。 验证各个参数之间的关系，放回被构建的类对象  new ResourcePool(this)
  *
+ *  怎么调用构造者创建对象呢
+ *
+ *  1， 构建者的默认构造方法， 再调用其setter方法链， 最后builder 方法 创建被构建者。
+ *
  */
 
 public class ResourcePoolConfig {

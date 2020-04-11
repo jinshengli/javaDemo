@@ -1,4 +1,10 @@
 package designmodel.proxy;
 
-public class IUserController {
+public interface IUserController {
+
+    public void register();
+
+    public void login();
+
+
 }
