@@ -4,6 +4,9 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /***
  *  单例的id 生成器。
+ *
+ *  饿汉式单例
+ *
  */
 public class IdGenerator {
 
@@ -13,7 +16,7 @@ public class IdGenerator {
 
     private IdGenerator(){ }
 
-    private static IdGenerator getInstance(){
+    public static IdGenerator getInstance(){
         return instance;
     }
 
