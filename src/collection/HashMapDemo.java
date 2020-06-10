@@ -1,8 +1,7 @@
 package collection;
 
 
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  *  简单总结hashMap的方法的总结
@@ -36,13 +35,36 @@ public class HashMapDemo {
 
     public static void main(String[] args) {
 
-        HashMap hashMap = new HashMap();
+        HashMap<String, String> hashMap = new HashMap();
 
-        Collection<?> collection = (Collection<?>) hashMap;
+
 
         hashMap.put(null, "vvv");
 
-        System.out.println(hashMap.get(null));
+        hashMap.put("llsls", "sss");
+
+        hashMap.put("wo","sss");
+
+
+
+
+        Set<Map.Entry<String, String>> entries = hashMap.entrySet();
+
+        for (Map.Entry<?,?> entry:entries){
+            System.out.println(entry);
+        }
+
+        Iterator<?> iterator = hashMap.entrySet().iterator();
+
+        System.out.println("//////////////");
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+        System.out.println("////////////////////");
+        String v = "";
+
+
 
 
     }

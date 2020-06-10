@@ -1,6 +1,7 @@
 package concurrent;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
 
 /**
 
@@ -44,6 +45,8 @@ public class ConcurrentHashMapDemo {
 
         concurrentHashMap.remove(1);
 
+
+        CountDownLatch latch = new CountDownLatch(2);
 
 
 

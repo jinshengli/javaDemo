@@ -34,7 +34,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
  *      解锁。
  *
  *
+ * get() 没加锁的，可以多线程读的。
  *
+ *
+ *1.5 为什么 CopyOnWriteArrayList 迭代过程中，数组结构变动，不会抛出
+ * ConcurrentModificationException 了
+ * 答：主要是因为 CopyOnWriteArrayList 每次操作时，都会产生新的数组，而迭代时，持有的
+ * 仍然是老数组的引用，所以我们说的数组结构变动，是用新数组替换了老数组，老数组的结构并
+ * 没有发生变化，所以不会抛出异常了
  *
  */
 
@@ -51,6 +58,8 @@ public class CopyOnWriteArrayListDemo {
         copyOnWriteArrayList.add(10);
 
         copyOnWriteArrayList.set(1,23);
+
+        copyOnWriteArrayList.get(0);
 
 
 

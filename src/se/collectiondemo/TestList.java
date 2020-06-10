@@ -1,6 +1,7 @@
 package se.collectiondemo;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class TestList{
     public static void main(String args[]){
@@ -17,6 +18,16 @@ public class TestList{
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+    }
+
+
+    public static void concurrnetHashMapDemo(){
+
+        ConcurrentHashMap map = new ConcurrentHashMap();
+
+        map.put("x",12);
+
+
     }
 
 

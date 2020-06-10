@@ -2,6 +2,7 @@ package io;
 
 import java.io.*;
 
+
 public class InputStreamDemo {
 
     public static void main(String[] args) throws IOException {
@@ -21,9 +22,11 @@ public class InputStreamDemo {
 //        InputStream
 
 //        FilterInputStream
-
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-
+        float [][]f = new float[6][];
+        float [][]f1 = new float[6][6];
+  //      float f2[][] = new float[][6];
+        float []f3[] = new float[6][6];
+        float f4[][] = new float[6][6];
 
 
 
