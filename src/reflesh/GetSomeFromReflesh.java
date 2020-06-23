@@ -43,14 +43,8 @@ public class GetSomeFromReflesh {
         for (Method method : declaredMethods) {
             System.out.println("declaredMethods: " + method);
         }
-
-
         System.out.println("--------------");
-
         Constructor[] constructors = c1.getConstructors();
-
-
-
     }
 
 }

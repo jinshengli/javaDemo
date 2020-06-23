@@ -34,8 +34,10 @@ public class CreateClass {
 
 class Person{
 
-    Integer id;
-    String name;
+    private Integer id;
+    public String name;
+
+
 
     public Person() {
     }
@@ -60,76 +62,89 @@ class Person{
     public void setName(String name) {
         this.name = name;
     }
+
+    private void getPerson(){
+        System.out.println("person");
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
 
 class Student extends Person{
 
     public static Integer od = 0;
 
-    private Integer id;
+    public String studentName;
 
-    private String name;
+    private Integer studentId;
+
+
+    protected int age;
+    char sex;
+    private String phoneNum;
+
+
 
     public Student() {
 
     }
 
     public Student(Integer id, String name) {
-        this.id = id;
+        this.studentId = id;
+        this.name = name;
+    }
+
+    public Student(Integer id) {
+        this.studentId = id;
+    }
+
+    private Student(String name) {
         this.name = name;
     }
 
 
 
-    public static void me(){
-
+    private Student(Integer id, Integer id2) {
+        this.studentId = id + id2;
     }
+
 
     public void test(Integer integer, String  name){
         System.out.println(integer + " " + name);
     }
 
-    public void test(Integer integer){
+    private void test(Integer integer){
         System.out.println(integer);
     }
 
-    public static Integer getOd() {
+    public  Integer getOd() {
         return od;
     }
 
-    public static void setOd(Integer od) {
+    public  void setOd(Integer od) {
         Student.od = od;
     }
 
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
 
     private void test(){
+        System.out.println("student test +++++++++=== method");
 
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "studentName='" + studentName + '\'' +
+                ", studentId=" + studentId +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", phoneNum='" + phoneNum + '\'' +
                 "} " + super.toString();
     }
 }
