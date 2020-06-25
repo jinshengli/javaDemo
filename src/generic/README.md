@@ -7,7 +7,7 @@
          }
          
     T extends Comparable：标识T 必须是Comparable类型  【定了上限】
-    <? super T> ：代表该类型必须是T 或者 T的父类。
+    <? super T> ：代表该类型必须是T 或者 T的父类。【定了下限】
     
     
 如果想对ArrayList<Song>进行排序的话；有两种方案。
@@ -17,14 +17,14 @@
 
     public class Song implements Comparable {
         @Override
-            public int compareTo(Object song) {
-        
-                Song s = (Song) song;
-        
-                // return title.compareTo(s.title);  升序； 小的去比大的。小的在做，大的在右。
-                return s.title.compareTo(title); 降序
-        
-            }
+        public int compareTo(Object song) {
+    
+            Song s = (Song) song;
+    
+            // return title.compareTo(s.title);  升序； 小的去比大的。小的在做，大的在右。
+            return s.title.compareTo(title); 降序
+    
+        }
     } 
     
 
@@ -54,7 +54,11 @@
     
     
 
-关于升序降序记忆点： 在 o1.CompareTo(o2); 和方法定义参数顺序一眼，升序。
+关于升序降序记忆点： 在 o1.CompareTo(o2); 和方法定义参数顺序一样，升序。
+
+comparable 接口实现方法 compareTo（Object obj）
+comparator 接口实现方法 compare(Object o1, Object o2)
+
     
           
              
