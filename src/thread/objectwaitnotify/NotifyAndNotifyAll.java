@@ -25,8 +25,8 @@ public class NotifyAndNotifyAll implements Runnable{
         Thread notifyThread = new Thread(() -> {
             synchronized (resource){
                 System.out.println(Thread.currentThread().getName() + "Notify 获得锁");
-//                resource.notifyAll();
-                resource.notify();
+                resource.notifyAll(); // 唤醒所有在resource对象锁上等待的线程【退出waiting状态】
+//                resource.notify();  // 唤醒waiting集合中某一个线程。
                 System.out.println(Thread.currentThread().getName() + "唤醒");
             }
 
