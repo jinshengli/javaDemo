@@ -1,4 +1,4 @@
-package future;
+package thread.future;
 
 import java.util.ArrayList;
 import java.util.Random;

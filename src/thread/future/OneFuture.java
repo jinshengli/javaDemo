@@ -1,21 +1,16 @@
-package future;
+package thread.future;
 
 import java.util.Random;
 import java.util.concurrent.*;
 
-public class OneFutureLamda {
+public class OneFuture {
 
     public static void main(String[] args) {
 
         ExecutorService service = Executors
                 .newFixedThreadPool(10);
 
-        Callable<Integer> callable = () -> {
-            Thread.sleep(3000);
-            return new Random().nextInt();
-        };
-
-        Future<Integer> future = service.submit(callable);
+        Future<Integer> future = service.submit(new CallableTask());
 
         try {
             System.out.println(future.get());
@@ -27,7 +22,14 @@ public class OneFutureLamda {
         service.shutdown();
     }
 
+    static class CallableTask implements Callable<Integer>{
 
+        @Override
+        public Integer call() throws Exception {
+            Thread.sleep(3000);
+            return new Random().nextInt();
+        }
+    }
 
 
 }
