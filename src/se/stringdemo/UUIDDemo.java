@@ -15,10 +15,7 @@ public class UUIDDemo {
         System.out.println(u);
 
         String uu = uuid.replace("-", "");
-
         System.out.println(uu);
-
-
 
     }
 

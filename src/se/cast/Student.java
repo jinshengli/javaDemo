@@ -13,6 +13,15 @@ public class Student implements Cloneable{
     private String name;
     private int age;
 
+    public Student() {
+    }
+
+    public Student(Subject subject, String name, int age) {
+        this.subject = subject;
+        this.name = name;
+        this.age = age;
+    }
+
     public Subject getSubject() {
         return subject;
     }

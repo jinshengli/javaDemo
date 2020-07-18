@@ -45,7 +45,26 @@
     
     
     用git log --graph命令可以看到分支合并图。
+    
+    
+    git remote
+    要查看远程库的信息
+   
+    git remote -v
+    
+    git push origin <branch-name>
+    
+    git push origin master
+    推送master分支
+    
+    git push origin dev
+    
+    拉取远程分支：解决冲突。
+    拉取远程分支自动合并到本地
+    git pull <remote> <branch>
 
+    和上相同，但是它需要手动合并
+    git fetch <remote> <branch>
 
 ##### 版本的前进和后退管理
     
@@ -61,7 +80,7 @@
     要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
     
     
-    git reflog 前进和回退的操作都会记录下来。
+    git reflog 前进和回退的操作都会记录下来。 
 
 
 
@@ -74,7 +93,7 @@
      
      1）git restore <file>
      2）git checkout -- <file>
-     
+          
      
      二：添加到了暂存区域，没有同步到仓库。
         
@@ -127,6 +146,66 @@
 
 
 
+#### 远程仓库
+
+
+    
+    …or create a new repository on the command line
+    
+    echo "# andshare" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git remote add origin https://github.com/jinshengli/andshare.git
+    git push -u origin master
+                    
+                
+                
+    …or push an existing repository from the command line
+    
+    git remote add origin https://github.com/jinshengli/andshare.git
+    git push -u origin master
+
+
+
+1. 关联一个远程库
+
+
+    git remote add origin https:xxx
+    
+    关联后，第一次推送master分支内容； git push -u origin master
+    
+    此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+    
+    
+    删除本地指定的远程地址：
+    git remote remove <remote>
+
+
+2. 从远程仓库克隆
+
+
+    git clone 远程仓库地址   // 默认克隆远程仓库的master分支
+    
+    克隆完，你先切换远程仓库不同的分支，git checkout -b dev origin/dev
+    
+    在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+    
+    拉取远程的一个分支： git clone -b 远程分支名称 仓库地址
+
+
+3. 创建一个远程参考的分支
+
+
+     git push origin(仓库名 key) 分支名
+
+
+4. 删除一个远程参考的分支
+
+
+    git push origin -d 分支名
+
+
 
 
 
@@ -138,8 +217,17 @@
 
 
 
-### 设置签名
 
+因此，多人协作的工作模式通常是这样：
 
-
-git --config
+    首先，可以试图用git push origin <branch-name>推送自己的修改；
+    
+    如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+    
+    如果合并有冲突，则解决冲突，并在本地提交；
+    
+    没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+    
+    如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+    
+    这就是多人协作的工作模式，一旦熟悉了，就非常简单。

@@ -1,6 +1,8 @@
 package generic;
 
 
+import java.util.Objects;
+
 /**
  * create by ljs on 2020/6/25 19:09
  * <p>
@@ -62,5 +64,21 @@ public class Song implements Comparable {
         // return title.compareTo(s.title);  升序； 小的去比大的。小的在做，大的在右。
         return s.title.compareTo(title);
 
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return Objects.equals(id, song.id) &&
+                Objects.equals(title, song.title) &&
+                Objects.equals(author, song.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, author);
     }
 }

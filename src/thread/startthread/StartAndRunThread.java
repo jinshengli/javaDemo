@@ -12,6 +12,11 @@ package thread.startthread;
  *
  * 二：重复调用start() 会怎样？ 抛出异常。
  *
+ *   线程启动start(), 先判断线程的状态是不是0，不是0，抛出线程异常。
+ *
+ *
+ *
+ *
  */
 public class StartAndRunThread {
 

@@ -44,7 +44,6 @@ public class ThreadLocalUsage00 {
 
     public String date(int seconds) {
 
-
         Date date = new Date(seconds*1000);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-hh HH:mm:ss");
         return dateFormat.format(date);

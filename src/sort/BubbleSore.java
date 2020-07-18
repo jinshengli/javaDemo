@@ -40,8 +40,8 @@ public class BubbleSore {
 
     public static void main(String[] args) {
 
-        //int arr[] = {1,20,32,1,3,4,5};
-        int arr[] = {2,3,5,6,7,8,9};
+        int arr[] = {1,20,32,1,3,4,5};
+        //int arr[] = {2,3,5,6,7,8,9};
         new BubbleSore().sort(arr);
         for (int a:arr){
             System.out.print( a + "  ");

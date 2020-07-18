@@ -27,6 +27,7 @@ public class StopThreadWithSleep {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.interrupted();
             }
 
             System.out.println("sleep 后");

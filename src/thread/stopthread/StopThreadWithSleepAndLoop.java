@@ -11,6 +11,14 @@ package thread.stopthread;
  *
  *  sleep 接受到中断后，抛出中断异常，同时清除该线程的中断标识。 catch异常后，线程继续循环操作。
  *
+ *
+ *  演示：
+ *
+ *      可中断的线程，在接受到interrupt信号后，通过catch中断异常后，当前线程的中断标识被清除。
+ *
+ *      这样不能成功中断该线程
+ *
+ *
  */
 
 public class StopThreadWithSleepAndLoop {
@@ -20,19 +28,19 @@ public class StopThreadWithSleepAndLoop {
         Runnable runnable = () -> {
 
             int num = 0;
-            try {
-                while ( num < 10000 ){
+            while ( num < 10000 && ! Thread.currentThread().isInterrupted() ){
 
-                    if ( num % 100 == 0){
-                        System.out.println(num + "是100的倍数");
-                    }
-                    Thread.sleep(10);
-                    num++;
+                if ( num % 100 == 0){
+                    System.out.println(num + "是100的倍数");
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
+                num++;
+            }
         };
 
         Thread thread = new Thread(runnable);
