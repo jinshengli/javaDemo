@@ -1,9 +1,7 @@
 package threadlocal;
 
 
-import link.User;
-
-
+import vo.User;
 
 /**
  * create by ljs on 2020/6/9 23:46
